@@ -23,11 +23,11 @@ namespace Maze_Algorithms {
 
             public Color Design { get; set; }
             public bool this[string direction] {
-                get { return directions[direction]; }
-                set { directions[direction] = value; }
+                get { return paths[direction]; }
+                set { paths[direction] = value; }
             }
 
-            readonly Dictionary<string, bool> directions = new Dictionary<string, bool> { { "N", false }, { "E", false }, { "W", false }, { "S", false } };
+            readonly Dictionary<string, bool> paths = new Dictionary<string, bool> { { "N", false }, { "E", false }, { "W", false }, { "S", false } };
 
             int GridRow { get; }
             int GridCol { get; }
@@ -66,9 +66,7 @@ namespace Maze_Algorithms {
         public static double Hue;
 
         public Mazes() {
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            UpdateStyles();
+            DoubleBuffered = true;
             InitializeComponent();
 
             for (var r = 0; r < MazeHeight; r++) {
