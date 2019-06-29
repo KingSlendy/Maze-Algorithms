@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace Maze_Algorithms {
-    public class Prim {
+    public class Prim : Algorithms {
         List<Mazes.Cell> cells = new List<Mazes.Cell>();
 
         public Prim() {
@@ -9,7 +9,7 @@ namespace Maze_Algorithms {
             GenerateMaze();
         }
 
-        async void GenerateMaze() {
+        public override async void GenerateMaze() {
             while (true) {
                 await Mazes.PaintUpdate();
 
@@ -23,11 +23,11 @@ namespace Maze_Algorithms {
                     choice = Mazes.RNG.Next(cells.Count);
                     var cell = cells[choice];
                     (row, col) = (cell.Row, cell.Col);
-                    adjacent = Mazes.Adjacent(row, col);
+                    adjacent = Adjacent(row, col);
                 }
 
-                (var newRow, var newCol) = Mazes.Direction(row, col, Mazes.Cardinal[adjacent]);
-                var current = Mazes.Forge(row, col, newRow, newCol, adjacent);
+                (var newRow, var newCol) = Direction(row, col, Cardinal[adjacent]);
+                var current = Forge(row, col, newRow, newCol, adjacent);
                 cells.Add(current);
                 Mazes.Current = current;
             }

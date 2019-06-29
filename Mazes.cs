@@ -56,9 +56,6 @@ namespace Maze_Algorithms {
         public static readonly int StartRow = RNG.Next(MazeHeight), StartCol = RNG.Next(MazeWidth);
         public static readonly int CellLength = 32;
         public static readonly Cell[,] Cells = new Cell[MazeHeight, MazeWidth];
-        public static readonly string[] Cardinal = { "N", "E", "W", "S" };
-        public static readonly string[] Opposite = { "S", "W", "E", "N" };
-        public static readonly Dictionary<string, (int row, int col)> Locations = new Dictionary<string, (int row, int col)> { { "N", (-1, 0) }, { "E", (0, 1) }, { "W", (0, -1) }, { "S", (1, 0) } };
         public static readonly int VisualSpeed = 20;
 
         public static bool Visualization = true;
@@ -93,70 +90,6 @@ namespace Maze_Algorithms {
                 case 8: new RecursiveDivision(); break;
                 case 9: new Sidewinder(); break;
                 case 10: new Wilson(); break;
-            }
-        }
-
-        public static (int, int) Direction(int row, int col, string cardinal) {
-            (var newRow, var newCol) = (row + Locations[cardinal].row, col + Locations[cardinal].col);
-
-            if (!newRow.IsInRange(0, MazeHeight - 1) || !newCol.IsInRange(0, MazeWidth - 1)) return (-1, -1);
-
-            return (newRow, newCol);
-        }
-
-        public static int Adjacent(int row, int col) {
-            var start = RNG.Next(Cardinal.Length);
-            var adjacent = -1;
-
-            for (var i = 0; i < Cardinal.Length; i++) {
-                var check = (start + i) % Cardinal.Length;
-                (var newRow, var newCol) = Direction(row, col, Cardinal[check]);
-
-                if ((newRow, newCol) != (-1, -1) && !Cells[newRow, newCol].Visited) {
-                    adjacent = check;
-
-                    break;
-                }
-            }
-
-            return adjacent;
-        }
-
-        public static int Adjacent(int row, int col, int[,] sets) {
-            var start = RNG.Next(Cardinal.Length);
-            var path = -1;
-
-            for (var i = 0; i < Cardinal.Length; i++) {
-                var check = (start + i) % Cardinal.Length;
-                (var newRow, var newCol) = Direction(row, col, Cardinal[check]);
-
-                if ((newRow, newCol) != (-1, -1) && sets[newRow, newCol] != sets[row, col]) {
-                    sets[newRow, newCol] = sets[row, col];
-                    Forge(row, col, newRow, newCol, check);
-                    path = check;
-
-                    break;
-                }
-            }
-
-            return path;
-        }
-
-        public static Cell Forge(int row, int col, int newRow, int newCol, int point) {
-            Cells[row, col].Visited = Cells[row, col][Cardinal[point]] = true;
-            Cells[newRow, newCol].Visited = Cells[newRow, newCol][Opposite[point]] = true;
-
-            return Cells[newRow, newCol];
-        }
-
-        public static void Union(int row, int col, int num, int[,] sets) {
-            foreach (var cardinal in Cardinal) {
-                (var newRow, var newCol) = Direction(row, col, cardinal);
-
-                if ((newRow, newCol) != (-1, -1) && Cells[row, col][cardinal] && sets[newRow, newCol] != sets[row, col]) {
-                    sets[newRow, newCol] = sets[row, col];
-                    Union(newRow, newCol, num, sets);
-                }
             }
         }
 

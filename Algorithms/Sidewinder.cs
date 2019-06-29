@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 
 namespace Maze_Algorithms {
-    public class Sidewinder {
+    public class Sidewinder : Algorithms {
         public Sidewinder() {
             Mazes.Current = Mazes.Cells[0, 0];
             GenerateMaze();
         }
 
-        async void GenerateMaze() {
+        public override async void GenerateMaze() {
             var choices = new List<Mazes.Cell>();
 
             for (var r = 0; r < Mazes.MazeHeight; r++) {
@@ -29,12 +29,12 @@ namespace Maze_Algorithms {
                         choices.Clear();
                     }
 
-                    (var row, var col) = Mazes.Direction(cell.Row, cell.Col, cardinal);
+                    (var row, var col) = Direction(cell.Row, cell.Col, cardinal);
 
                     if ((row, col) != (-1, -1)) {
                         if (r != 0 && cardinal != "N") choices.Add(cell);
 
-                        Mazes.Current = Mazes.Forge(cell.Row, cell.Col, row, col, Array.IndexOf(Mazes.Cardinal, cardinal));
+                        Mazes.Current = Forge(cell.Row, cell.Col, row, col, Array.IndexOf(Cardinal, cardinal));
                     }
                 }
             }

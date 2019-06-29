@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace Maze_Algorithms {
-    public class DepthFirstSearch {
+    public class DepthFirstSearch : Algorithms {
         Mazes.Cell current = Mazes.Current = Mazes.Cells[Mazes.StartRow, Mazes.StartCol];
         Stack<Mazes.Cell> cells = new Stack<Mazes.Cell>();
 
@@ -10,16 +10,16 @@ namespace Maze_Algorithms {
             GenerateMaze();
         }
 
-        async void GenerateMaze() {
+        public override async void GenerateMaze() {
             while (cells.Count > 0) {
                 await Mazes.PaintUpdate();
 
                 (var row, var col) = (current.Row, current.Col);
-                var adjacent = Mazes.Adjacent(row, col);
+                var adjacent = Adjacent(row, col);
 
                 if (adjacent != -1) {
-                    (var newRow, var newCol) = Mazes.Direction(row, col, Mazes.Cardinal[adjacent]);
-                    current = Mazes.Forge(row, col, newRow, newCol, adjacent);
+                    (var newRow, var newCol) = Direction(row, col, Cardinal[adjacent]);
+                    current = Forge(row, col, newRow, newCol, adjacent);
                     cells.Push(current);
                 } else {
                     current = cells.Pop();

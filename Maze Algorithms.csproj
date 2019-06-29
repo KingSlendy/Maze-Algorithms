@@ -71,6 +71,7 @@
     <Compile Include="Algorithms\Eller.cs" />
     <Compile Include="Algorithms\GrowingTree.cs" />
     <Compile Include="Algorithms\HuntAndKill.cs" />
+    <Compile Include="Algorithms\Algorithms.cs" />
     <Compile Include="Algorithms\Kruskal.cs" />
     <Compile Include="Algorithms\Prim.cs" />
     <Compile Include="Algorithms\DepthFirstSearch.cs" />

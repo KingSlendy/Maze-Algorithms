@@ -1,5 +1,5 @@
 ﻿namespace Maze_Algorithms {
-    public class Wilson {
+    public class Wilson : Algorithms {
         readonly int[,] directions = new int[Mazes.MazeHeight, Mazes.MazeWidth];
         Mazes.Cell current = new Mazes.Cell(-1, -1);
 
@@ -7,7 +7,7 @@
             GenerateMaze();
         }
 
-        async void GenerateMaze() {
+        public override async void GenerateMaze() {
             Mazes.Cell Choose(bool visited) {
                 var chosen = new Mazes.Cell(-1, -1);
 
@@ -35,7 +35,7 @@
                     (var row, var col) = (-1, -1);
 
                     do {
-                        (row, col) = Mazes.Direction(chosen.Row, chosen.Col, Mazes.Cardinal[directions[chosen.Row, chosen.Col] = Mazes.RNG.Next(Mazes.Cardinal.Length)]);
+                        (row, col) = Direction(chosen.Row, chosen.Col, Cardinal[directions[chosen.Row, chosen.Col] = Mazes.RNG.Next(Cardinal.Length)]);
                     } while ((row, col) == (-1, -1));
 
                     Mazes.Current = initial = chosen = Mazes.Cells[row, col];
@@ -46,8 +46,8 @@
                 while (chosen != initial) {
                     await Mazes.PaintUpdate();
 
-                    (var row, var col) = Mazes.Direction(chosen.Row, chosen.Col, Mazes.Cardinal[directions[chosen.Row, chosen.Col]]);
-                    Mazes.Current = chosen = Mazes.Forge(chosen.Row, chosen.Col, row, col, directions[chosen.Row, chosen.Col]);
+                    (var row, var col) = Direction(chosen.Row, chosen.Col, Cardinal[directions[chosen.Row, chosen.Col]]);
+                    Mazes.Current = chosen = Forge(chosen.Row, chosen.Col, row, col, directions[chosen.Row, chosen.Col]);
                     totalVisited++;
                 }
             }

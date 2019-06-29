@@ -1,14 +1,14 @@
 ﻿using System.Threading.Tasks;
 
 namespace Maze_Algorithms {
-    public class RecursiveDivision {
+    public class RecursiveDivision : Algorithms {
         public RecursiveDivision() {
             for (var r = 0; r < Mazes.MazeHeight; r++) {
                 for (var c = 0; c < Mazes.MazeWidth; c++) {
                     Mazes.Cells[r, c].Visited = true;
 
-                    for (var d = 0; d < Mazes.Cardinal.Length; d++)
-                        Mazes.Cells[r, c][Mazes.Cardinal[d]] = true;
+                    for (var d = 0; d < Cardinal.Length; d++)
+                        Mazes.Cells[r, c][Cardinal[d]] = true;
 
                     if (r == 0) Mazes.Cells[r, c]["N"] = false;
                     if (c == Mazes.MazeWidth - 1) Mazes.Cells[r, c]["E"] = false;
@@ -20,7 +20,7 @@ namespace Maze_Algorithms {
             GenerateMaze();
         }
 
-        async void GenerateMaze() {
+        public override async void GenerateMaze() {
             int ChooseOrientation(int width, int height) {
                 return (width < height) ? 0 : (height < width) ? 1 : Mazes.RNG.Next(2);
             }
@@ -48,9 +48,9 @@ namespace Maze_Algorithms {
                     await Mazes.PaintUpdate();
 
                     if (wallRow != passRow || wallCol != passCol) {
-                        Mazes.Cells[wallRow, wallCol][Mazes.Cardinal[dir]] = false;
-                        (var newRow, var newCol) = Mazes.Direction(wallRow, wallCol, Mazes.Cardinal[dir]);
-                        Mazes.Cells[newRow, newCol][Mazes.Opposite[dir]] = false;
+                        Mazes.Cells[wallRow, wallCol][Cardinal[dir]] = false;
+                        (var newRow, var newCol) = Direction(wallRow, wallCol, Cardinal[dir]);
+                        Mazes.Cells[newRow, newCol][Opposite[dir]] = false;
                     }
 
                     wallRow += dirRow;
