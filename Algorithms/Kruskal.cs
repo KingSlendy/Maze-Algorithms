@@ -4,9 +4,7 @@ namespace Maze_Algorithms {
     public class Kruskal : Algorithms {
         int[,] sets = Enumerable.Range(0, Mazes.MazeWidth * Mazes.MazeHeight).ToArray().ToArray2D(Mazes.MazeHeight, Mazes.MazeWidth);
 
-        public Kruskal() {
-            GenerateMaze();
-        }
+        public Kruskal() => GenerateMaze();
 
         public override int Adjacent(int row, int col, int[,] sets) {
             var start = Mazes.RNG.Next(Cardinal.Length);

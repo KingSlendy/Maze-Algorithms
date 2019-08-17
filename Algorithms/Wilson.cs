@@ -3,9 +3,7 @@
         readonly int[,] directions = new int[Mazes.MazeHeight, Mazes.MazeWidth];
         Mazes.Cell current = new Mazes.Cell(-1, -1);
 
-        public Wilson() {
-            GenerateMaze();
-        }
+        public Wilson() => GenerateMaze();
 
         public override async void GenerateMaze() {
             Mazes.Cell Choose(bool visited) {

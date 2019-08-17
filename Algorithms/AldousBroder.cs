@@ -2,9 +2,7 @@
     public class AldousBroder : Algorithms {
         Mazes.Cell current = Mazes.Current = Mazes.Cells[Mazes.StartRow, Mazes.StartCol];
 
-        public AldousBroder() {
-            GenerateMaze();
-        }
+        public AldousBroder() => GenerateMaze();
 
         public override async void GenerateMaze() {
             var totalVisited = 0;

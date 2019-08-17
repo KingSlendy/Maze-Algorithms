@@ -10,7 +10,7 @@ namespace Maze_Algorithms {
             public int Row { get; }
             public int Col { get; }
             public bool Visited {
-                get { return visited; }
+                get => visited;
 
                 set {
                     if (!visited) {
@@ -23,8 +23,8 @@ namespace Maze_Algorithms {
 
             public Color Design { get; set; }
             public bool this[string direction] {
-                get { return paths[direction]; }
-                set { paths[direction] = value; }
+                get => paths[direction];
+                set => paths[direction] = value;
             }
 
             readonly Dictionary<string, bool> paths = new Dictionary<string, bool> { { "N", false }, { "E", false }, { "W", false }, { "S", false } };

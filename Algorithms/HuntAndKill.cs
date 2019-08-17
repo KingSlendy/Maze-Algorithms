@@ -2,9 +2,7 @@
     public class HuntAndKill : Algorithms {
         Mazes.Cell current = Mazes.Current = Mazes.Cells[Mazes.StartRow, Mazes.StartCol];
 
-        public HuntAndKill() {
-            GenerateMaze();
-        }
+        public HuntAndKill() => GenerateMaze();
 
         public override async void GenerateMaze() {
             while (true) {

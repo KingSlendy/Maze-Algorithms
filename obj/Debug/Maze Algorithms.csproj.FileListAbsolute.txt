@@ -8,3 +8,13 @@ C:\Users\theki\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms
 C:\Users\theki\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\obj\Debug\Maze Algorithms.exe
 C:\Users\theki\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\obj\Debug\Maze Algorithms.pdb
 C:\Users\theki\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\obj\Debug\Maze_Algorithms.Mazes.resources
+C:\Users\KingSlendy\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\bin\Debug\Maze Algorithms.exe.config
+C:\Users\KingSlendy\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\bin\Debug\Maze Algorithms.exe
+C:\Users\KingSlendy\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\bin\Debug\Maze Algorithms.pdb
+C:\Users\KingSlendy\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\obj\Debug\Maze Algorithms.csprojAssemblyReference.cache
+C:\Users\KingSlendy\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\obj\Debug\Maze_Algorithms.Mazes.resources
+C:\Users\KingSlendy\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\obj\Debug\Maze_Algorithms.Properties.Resources.resources
+C:\Users\KingSlendy\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\obj\Debug\Maze Algorithms.csproj.GenerateResource.cache
+C:\Users\KingSlendy\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\obj\Debug\Maze Algorithms.csproj.CoreCompileInputs.cache
+C:\Users\KingSlendy\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\obj\Debug\Maze Algorithms.exe
+C:\Users\KingSlendy\Desktop\King Files\Programming\C#\Maze Algorithms\Maze Algorithms\Maze Algorithms\obj\Debug\Maze Algorithms.pdb

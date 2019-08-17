@@ -21,9 +21,8 @@ namespace Maze_Algorithms {
         }
 
         public override async void GenerateMaze() {
-            int ChooseOrientation(int width, int height) {
-                return (width < height) ? 0 : (height < width) ? 1 : Mazes.RNG.Next(2);
-            }
+            int ChooseOrientation(int width, int height) =>
+                (width < height) ? 0 : (height < width) ? 1 : Mazes.RNG.Next(2);
 
             async Task Division(int row, int col, int width, int height, int orientation) {
                 if (width < 2 || height < 2) return;
